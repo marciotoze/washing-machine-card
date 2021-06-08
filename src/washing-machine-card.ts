@@ -19,7 +19,7 @@ import {
 
 import './editor';
 
-import type { BoilerplateCardConfig } from './types';
+import type { WashingMachineCardConfig } from './types';
 import { CARD_VERSION } from './const';
 
 import washingMachineImage from './images/washing-machine-cleaning.png';
@@ -34,16 +34,16 @@ console.info(
 // This puts your card into the UI card picker dialog
 (window as any).customCards = (window as any).customCards || [];
 (window as any).customCards.push({
-  type: 'boilerplate-card',
-  name: 'Boilerplate Card',
-  description: 'A template custom card for you to create something awesome',
+  type: 'washing-machine-card',
+  name: 'Washing Machine Card',
+  description: 'A washing machine card',
 });
 
 // TODO Name your custom element
-@customElement('boilerplate-card')
-export class BoilerplateCard extends LitElement {
+@customElement('washing-machine-card')
+export class WashingMachineCard extends LitElement {
   public static async getConfigElement(): Promise<LovelaceCardEditor> {
-    return document.createElement('boilerplate-card-editor');
+    return document.createElement('washing-machine-card-editor');
   }
 
   public static getStubConfig(): object {
@@ -53,10 +53,10 @@ export class BoilerplateCard extends LitElement {
   // TODO Add any properities that should cause your element to re-render here
   // https://lit-element.polymer-project.org/guide/properties
   @property({ attribute: false }) public hass!: HomeAssistant;
-  @internalProperty() private config!: BoilerplateCardConfig;
+  @internalProperty() private config!: WashingMachineCardConfig;
 
   // https://lit-element.polymer-project.org/guide/properties#accessors-custom
-  public setConfig(config: BoilerplateCardConfig): void {
+  public setConfig(config: WashingMachineCardConfig): void {
     // TODO Check for required fields and that they are of the proper format
     if (!config) {
       throw new Error("Invalid configuration");
